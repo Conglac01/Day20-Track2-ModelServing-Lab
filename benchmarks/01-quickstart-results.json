@@ -1,0 +1,36 @@
+{
+  "primary": {
+    "label": "primary (Q4_K_M)",
+    "model_path": "models/Llama-3.2-3B-Instruct-Q4_K_M.gguf",
+    "n_threads": 10,
+    "n_ctx": 2048,
+    "n_batch": 512,
+    "n_gpu_layers": 99,
+    "load_ms": 6693.4,
+    "ttft_ms_p50": 67.2,
+    "ttft_ms_p95": 187.6,
+    "tpot_ms_p50": 17.61,
+    "tpot_ms_p95": 17.81,
+    "e2e_ms_p50": 1176.5,
+    "e2e_ms_p95": 1309.5,
+    "e2e_ms_p99": 1371.9,
+    "decode_rate_tok_s": 56.8
+  },
+  "compare": {
+    "label": "compare (Q2_K)",
+    "model_path": "models/Llama-3.2-3B-Instruct-Q3_K_L.gguf",
+    "n_threads": 10,
+    "n_ctx": 2048,
+    "n_batch": 512,
+    "n_gpu_layers": 99,
+    "load_ms": 477.9,
+    "ttft_ms_p50": 69.1,
+    "ttft_ms_p95": 150.8,
+    "tpot_ms_p50": 16.16,
+    "tpot_ms_p95": 16.29,
+    "e2e_ms_p50": 1089.2,
+    "e2e_ms_p95": 1164.4,
+    "e2e_ms_p99": 1199.0,
+    "decode_rate_tok_s": 61.9
+  }
+}
