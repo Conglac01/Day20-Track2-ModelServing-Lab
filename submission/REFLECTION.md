@@ -40,8 +40,8 @@
 
 | Concurrency | Total RPS | TTFB P50 (ms) | E2E P50 (ms) | E2E P95 (ms) | E2E P99 (ms) | Failures |
 |--:|--:|--:|--:|--:|--:|--:|
-| 10 | 0.72 | ~11000 | 11000 | 14000 | 14000 | 0 |
-| 50 | 0.55 | ~19000 | 19000 | 35000 | 38000 | 0 |
+| 10 | 0.65 | ~6100 | 9600 | 15000 | 15000 | 0 |
+| 50 | 0.70 | ~15000 | 19000 | 34000 | 34000 | 0 |
 
 **Batching observation** (từ `record-metrics.py`): peak `llamacpp:n_busy_slots_per_decode` = 3.22 với `n_decode_total`=122 và `tokens_predicted_total`=389 sau 20 request. Với `--parallel 4`, server giữ trung bình 3.2 slot bận trong suốt quá trình decode — chứng tỏ continuous batching đang hoạt động. Khi load tăng từ 10→50 users, RPS giảm (0.72→0.55) và latency P95 tăng 2.5× (14s→35s) vì server bắt đầu bão hòa ở 4 slot parallel. M5 10-core với Metal vẫn đang bị bottleneck bởi memory bandwidth khi xử lý nhiều sequence cùng lúc.
 

@@ -54,10 +54,10 @@ smoke: ## Track 02 — smoke-test the running server
 	@$(PY) 02-llama-cpp-server/smoke-test.py
 
 load-10: ## Track 02 — locust 10 users, 1 min
-	@$(LOCUST) -f 02-llama-cpp-server/load-test.py --headless -u 10 -r 1 -t 1m --host http://localhost:8080
+	GEVENT_LOOP=libuv $(LOCUST) -f 02-llama-cpp-server/load-test.py --headless -u 10 -r 1 -t 1m --host http://localhost:8080
 
 load-50: ## Track 02 — locust 50 users, 1 min
-	@$(LOCUST) -f 02-llama-cpp-server/load-test.py --headless -u 50 -r 1 -t 1m --host http://localhost:8080
+	GEVENT_LOOP=libuv $(LOCUST) -f 02-llama-cpp-server/load-test.py --headless -u 50 -r 1 -t 1m --host http://localhost:8080
 
 metrics: ## Track 02 (observability) — record /metrics 60s (needs the native server: make serve-native)
 	@$(PY) 02-llama-cpp-server/record-metrics.py --duration 60
